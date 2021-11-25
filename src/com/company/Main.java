@@ -3,6 +3,8 @@ package com.company;
 import java.util.Scanner;
 
 public class Main {
+
+    // function handling non integer input types by the user
     public static Integer getInt(Scanner get){
         int val;
         while (true){
@@ -16,6 +18,8 @@ public class Main {
         }
         return val;
     }
+
+    // function handling non float input types by the user
     public static float getFloat(Scanner get){
         float val;
         while (true){
@@ -29,6 +33,8 @@ public class Main {
         }
         return val;
     }
+
+    // function returning ranked array of student object based on their averages
     public static Student[] rank(Student[] unscaled) {
         for (int i=0; i<unscaled.length; i++){
             int max = i;
@@ -43,6 +49,8 @@ public class Main {
         }
         return unscaled;
     }
+
+    // function printing out students of a student array and their attributes
     public static void display(Student[] students){
         int _rank = 1;
         System.out.println(" ");
@@ -53,6 +61,8 @@ public class Main {
     }
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+
+        // getting the class size(length of student array)
         System.out.print("enter class size: ");
         int length = getInt(input);
         while (length<10){
@@ -61,6 +71,8 @@ public class Main {
             length = getInt(input);
         }
         Student[] classR = new Student[length];
+
+        // creation of student objects and population of students array
         for (int i=0; i<length; i++) {
             System.out.println("");
             System.out.println("Student " + (i + 1));
@@ -74,6 +86,8 @@ public class Main {
             float mathScore = getFloat(input);
             classR[i] = new Student(name, age, enScore, mathScore);
         }
+
+        // display of ranked student array
         display(rank(classR));
     }
 }
